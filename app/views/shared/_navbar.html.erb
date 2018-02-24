@@ -12,8 +12,26 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Link1</a></li>
-        <li><a href="#">Link2</a></li>
+        
+        <% if user_signed_in? && current_user.admin%>
+        <li><a href="<%= edit_user_registration_path %>">Admin</a></li>
+        <% end %>
+        <% if user_signed_in? %>
+        <li><a href="<%= histories_my_histories_path %>">Mis Historias</a></li>
+        <li class="nav-item">
+          <%= link_to current_user.email, '#', class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to 'Iniciar Sesión', new_user_session_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Registrarse', new_user_registration_path, class: 'nav-link' %>
+      </li>
+      <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
