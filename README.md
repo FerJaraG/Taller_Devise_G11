@@ -1,3 +1,7 @@
+EL PROYECTO DE EJEMPLO VENIA CON SQLITE 3, NO PUDE MIGRAR A HEROKU :(
+
+
+
 # Taller DEVISE
 ## Autenticación con Devise
 
